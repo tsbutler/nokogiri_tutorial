@@ -13,6 +13,13 @@ parse_page = Nokogiri::HTML(page)
 #This is an empty array where we will store all the craigslist pets
 pets_array = []
 
-parse_page.css('.content').css('.row').css('.hdrlnk')
+#This is where we parse the data
+parse_page.css('.content').css('.row').css('.hdrlnk').map do |a|
+  post_name = a.text
+  pets_array.push(post_name)
+end
+
+
+
 
 Pry.start(binding)
