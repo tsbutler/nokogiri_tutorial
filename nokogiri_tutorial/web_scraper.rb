@@ -19,7 +19,9 @@ parse_page.css('.content').css('.row').css('.hdrlnk').map do |a|
   pets_array.push(post_name)
 end
 
+#This will push your array into a csv file
+CSV.open('pets.csv', 'w') do |csv|
+  csv << pets_array
+end
 
-
-
-Pry.start(binding)
+#Pry.start(binding)
